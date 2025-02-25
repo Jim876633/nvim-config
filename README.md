@@ -74,6 +74,17 @@ This is my personal Neovim configuration, largely based on the [How I Setup Neov
 - `<leader>se` → Make splits equal size
 - `<leader>sh` → Split window horizontally
 - `<leader>sv` → Split window vertically
+
+### Buffer/Tab Management
+
+- `<leader>b<number>` → Switch to buffer <number>
+- `<leader>bn` → Go to next buffer
+- `<leader>bp` → Go to previous buffer
+- `<leader>q` → Close buffer
+- `<leader>p` → Pin buffer
+- `<leader>bq` → Close buffer include pin
+- `<leader>tn` → Go to next tab
+- `<leader>tp` → Go to previous tab
 - `<leader>to` → Open new tab
 - `<leader>tx` → Close current tab
 - `<leader>tn` → Go to next tab

@@ -27,3 +27,60 @@ vim.keymap.set("n", "<leader>z", function()
 		vim.wo.wrap = true
 	end
 end, { desc = "Toggle wrap" })
+
+-- bufferline
+local function get_is_pinned()
+	local bufferGroups = require("bufferline.groups")
+	local commands = require("bufferline.commands")
+	local state = require("bufferline.state")
+	local _, element = commands.get_current_element_index(state)
+	if not element or not element.group then
+		return false
+	end
+	return bufferGroups._is_pinned(element)
+end
+local function close_current_buffer()
+	local bufnr = vim.api.nvim_get_current_buf()
+	local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+	if #buffers > 1 then
+		vim.cmd("BufferLineCyclePrev")
+		vim.cmd("bd " .. bufnr)
+	else
+		vim.notify("This is the last buffer!", vim.log.levels.WARN)
+	end
+end
+
+for i = 1, 9 do
+	vim.keymap.set(
+		"n",
+		"<leader>b" .. i,
+		"<Cmd>BufferLineGoToBuffer " .. i .. "<CR>",
+		{ desc = "Go to buffer " .. i, noremap = true, silent = true }
+	)
+end
+vim.keymap.set("n", "<leader>p", "<Cmd>BufferLineTogglePin<CR>", { desc = "Pin buffer", noremap = true, silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>bn",
+	"<Cmd>BufferLineCycleNext<CR>",
+	{ desc = "Go Next buffer", noremap = true, silent = true }
+)
+vim.keymap.set(
+	"n",
+	"<leader>bp",
+	"<Cmd>BufferLineCyclePrev<CR>",
+	{ desc = "Go Prev buffer", noremap = true, silent = true }
+)
+vim.keymap.set("n", "<leader>bq", function()
+	if get_is_pinned() then
+		vim.cmd("BufferLineTogglePin")
+	end
+	close_current_buffer()
+end, { desc = "Unpin and close", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>q", function()
+	if get_is_pinned() then
+		vim.notify("This buffer is pinned!", vim.log.levels.WARN)
+		return
+	end
+	close_current_buffer()
+end, { desc = "Close current buffer", noremap = true, silent = true })
