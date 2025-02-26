@@ -4,7 +4,15 @@ return {
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons", lazy = true },
 		},
-
+		config = function()
+			require("diffview").setup({
+				view = {
+					merge_tool = {
+						layout = "diff3_mixed",
+					},
+				},
+			})
+		end,
 		keys = {
 			{
 				"<leader>do",
