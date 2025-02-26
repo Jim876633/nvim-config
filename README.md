@@ -145,3 +145,5 @@ This is my personal Neovim configuration, largely based on the [How I Setup Neov
 | [vim-maximizer](https://github.com/szw/vim-maximizer)                           | Toggles Neovim window maximization and restoration.                 |
 | [which-key.nvim](https://github.com/folke/which-key.nvim)                       | Shows key bindings in a popup to help learn shortcuts.              |
 | [project.nvim](https://github.com/ahmedkhalf/project.nvim)                      | Project management for Neovim.                                      |
+| [mdx.nvim](https://github.com/davidmh/mdx.nvim)                                 | Markdown previewer for Neovim.                                      |
+| [oil.nvim](https://github.com/stevearc/oil.nvim)                                | Eazy to Edit filesystem.                                            |
