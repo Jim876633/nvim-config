@@ -25,6 +25,7 @@ return {
 				"json",
 				"javascript",
 				"typescript",
+				"vue",
 				"tsx",
 				"yaml",
 				"html",
@@ -38,6 +39,7 @@ return {
 				"bash",
 				"lua",
 				"vim",
+				"xml",
 				"dockerfile",
 				"gitignore",
 				"query",
@@ -54,6 +56,11 @@ return {
 					node_decremental = "<bs>",
 				},
 			},
+			TSConfig = {},
+			auto_install = true,
+			modules = {},
+			sync_install = false,
+			ignore_install = {},
 		})
 	end,
 }
