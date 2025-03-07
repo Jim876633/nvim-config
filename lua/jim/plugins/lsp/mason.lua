@@ -45,6 +45,7 @@ return {
 				"black",
 				"pylint",
 				"eslint_d",
+				"stylelint",
 			},
 		})
 	end,
