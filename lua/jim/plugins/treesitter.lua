@@ -25,6 +25,7 @@ return {
 				"json",
 				"javascript",
 				"typescript",
+				"angular",
 				"vue",
 				"tsx",
 				"yaml",
